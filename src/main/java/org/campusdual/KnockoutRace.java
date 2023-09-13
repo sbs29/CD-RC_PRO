@@ -12,22 +12,18 @@ public class KnockoutRace extends Race{
     }
 
     // ***************************************** TO STRING *************************************************************
+
+
     @Override
     public String toString() {
-        /*StringBuilder sb = new StringBuilder();
-        sb.append("=== ");
-        sb.append(this.getTitle());
-        if (this.isEdited()) {
-            sb.append(" (editado) ");
-        }
-        sb.append(" ===");
-        sb.append("\n\tFecha: ").append(this.getSdf().format(this.getPostDate()));
-        sb.append("\n\tID: ").append(this.getId());
-        sb.append("\n\tContenido: ").append(this.getContent());
-        sb.append("\n\tComentarios (").append(this.getPostComments().size()).append("):\n");
-        sb.append(Utils.returnShowFromList(this.getPostComments(), false, true));
-        return sb.toString();*/
-        return super.toString();
+        return "KnockoutRace{" +
+                "previousTime=" + previousTime +
+                ", id=" + id +
+                ", raceName='" + raceName + '\'' +
+                ", garageNameList=" + garageNameList +
+                ", raceParticipants=" + raceParticipants +
+                ", podium=" + podium +
+                '}';
     }
 
     // ****************************************** GETTERS **************************************************************

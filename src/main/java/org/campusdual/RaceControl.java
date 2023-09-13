@@ -29,6 +29,7 @@ public class RaceControl {
         Garage garageSS = new Garage("Garaje SS");
         Garage garageSB = new Garage("Garaje SB");
         Garage garageYG = new Garage("Garaje YG");
+
         ScoreCar seatLeon = new ScoreCar("Seat","Leon");
         seatLeon.setGarageName(garageJS.getGarageName());
         ScoreCar seatIbiza = new ScoreCar("Seat","Ibiza");
@@ -61,10 +62,12 @@ public class RaceControl {
         jeepCherokee.setGarageName(garageYG.getGarageName());
         ScoreCar jeepGladiator = new ScoreCar("Jeep","Gladiator");
         jeepGladiator.setGarageName(garageSS.getGarageName());
+
         this.raceControlGarage.add(garageJS);
         this.raceControlGarage.add(garageSS);
         this.raceControlGarage.add(garageSB);
         this.raceControlGarage.add(garageYG);
+
         this.raceControlScoreCar.add(seatLeon);
         this.raceControlScoreCar.add(seatIbiza);
         this.raceControlScoreCar.add(citroenXsara);
@@ -81,6 +84,44 @@ public class RaceControl {
         this.raceControlScoreCar.add(jeepAvenger);
         this.raceControlScoreCar.add(jeepCherokee);
         this.raceControlScoreCar.add(jeepGladiator);
+
+        Race raceS01 = new StandardRace("Carrera España");
+        raceS01.addGarageToRace(garageYG);
+        raceS01.addGarageToRace(garageSB);
+        raceS01.addGarageToRace(garageJS);
+        raceS01.addGarageToRace(garageSS);
+        Race raceS02 = new StandardRace("Carrera Portugal");
+        raceS02.addGarageToRace(garageYG);
+        raceS02.addGarageToRace(garageSB);
+        raceS02.addGarageToRace(garageJS);
+        Race raceS03 = new StandardRace("Carrera Francia");
+        raceS03.addGarageToRace(garageJS);
+        raceS03.addGarageToRace(garageSS);
+        Race raceS04 = new StandardRace("Carrera Alemania");
+        raceS04.addGarageToRace(garageSS);
+        Race raceK01 = new KnockoutRace("Carrera USA",10);
+        raceK01.addGarageToRace(garageYG);
+        Race raceK02 = new KnockoutRace("Carrera Ingleterra", 10);
+        raceK02.addGarageToRace(garageJS);
+        raceK02.addGarageToRace(garageSS);
+        Race raceK03 = new KnockoutRace("Carrera Italia", 10);
+        raceK03.addGarageToRace(garageYG);
+        raceK03.addGarageToRace(garageJS);
+        raceK03.addGarageToRace(garageSS);
+        Race raceK04 = new KnockoutRace("Carrera Suiza", 10);
+        raceK03.addGarageToRace(garageYG);
+        raceK03.addGarageToRace(garageSB);
+        raceK03.addGarageToRace(garageJS);
+        raceK03.addGarageToRace(garageSS);
+
+        this.raceControlRace.add(raceS01);
+        this.raceControlRace.add(raceS02);
+        this.raceControlRace.add(raceS03);
+        this.raceControlRace.add(raceS04);
+        this.raceControlRace.add(raceK01);
+        this.raceControlRace.add(raceK02);
+        this.raceControlRace.add(raceK03);
+        this.raceControlRace.add(raceK04);
     }
 
     public void init() {
@@ -90,7 +131,7 @@ public class RaceControl {
             System.out.println("=== Race Control ===");
             System.out.println("====================");
             System.out.println("1. Gestión *GARAJE*");
-            System.out.println("1. Gestión *CARRERA*");
+            System.out.println("2. Gestión *CARRERA*");
             System.out.println("3. Gestión *TORNEO*");
             System.out.println("0. Salir");
             opt = Input.integer("\nIntroduce la opción deseada: ");
@@ -198,9 +239,9 @@ public class RaceControl {
             System.out.println("\n======================");
             System.out.println("=== Gestion Torneo ===");
             System.out.println("======================");
-            System.out.println("1. Gestión *GARAJE*");
-            System.out.println("1. Gestión *CARRERA*");
-            System.out.println("2. Gestión *TORNEO*");
+            System.out.println("1. Crear nuevo torneo");
+            System.out.println("2. Ver historico de torneos");
+            System.out.println("3. Eliminar torneo");
             System.out.println("0. Atrás.");
             opt = Input.integer("\nIntroduce la opción deseada: ");
             switch (opt) {
@@ -208,13 +249,13 @@ public class RaceControl {
                     System.out.println("Atrás.");
                     break;
                 case 1:
-                    System.out.println("aasd");
+                    System.out.println("Crear nuevo torneo");
                     break;
                 case 2:
-                    System.out.println("asdawd");
+                    System.out.println("Ver historico de torneos");
                     break;
                 case 3:
-                    System.out.println("asdaswd");
+                    System.out.println("Eliminar torneo");
                     break;
                 default:
                     System.out.println("Opción no válida.");
@@ -321,8 +362,6 @@ public class RaceControl {
             sc.setGarageName(garageName);
         }
     }*/
-
-
 
     private void createRaceKnockout(){
         int opt;
